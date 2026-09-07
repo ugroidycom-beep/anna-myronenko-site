@@ -1,0 +1,1349 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html { color-scheme: dark light; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Анна Мироненко</title>
+<meta name="description" content="Сайт-візитка маркетологині Анни Мироненко у стилі кінематографічної зйомки." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Unbounded:wght@500;600;700&display=swap" />
+
+<style>
+  /* dark-first: :root is the dark (black) theme */
+  :root {
+    --bg: #050506;
+    --surface: rgba(255, 255, 255, 0.045);
+    --text: #ECEAF3;
+    --text-dim: #8C8AA0;
+    --line: rgba(255, 255, 255, 0.13);
+    --accent: #A99CF5;
+    --accent-2: #7FB2FF;
+    --accent-deep: #8B7FE8;
+    --accent-ink: #140F22;
+    --accent-wash: rgba(169, 156, 245, 0.14);
+    --rec: #FF6B8A;
+    --glow: rgba(169, 156, 245, 0.32);
+    --vgn: rgba(0, 0, 0, 0.55);
+    --grain-op: 0.26;
+    --grain-blend: overlay;
+    --panel-grad: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012));
+    --panel-sheen: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    --font-display: "Unbounded", "Trebuchet MS", sans-serif;
+    --font-body: "IBM Plex Sans", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  }
+  :root[data-theme="light"] {
+    --bg: #F2F1F7;
+    --surface: rgba(20, 18, 38, 0.02);
+    --text: #191727;
+    --text-dim: #5C5972;
+    --line: rgba(24, 20, 48, 0.14);
+    --accent: #6C5CE0;
+    --accent-2: #3F72D8;
+    --accent-deep: #5646C4;
+    --accent-ink: #FFFFFF;
+    --accent-wash: rgba(108, 92, 224, 0.10);
+    --rec: #E5484D;
+    --glow: rgba(108, 92, 224, 0.22);
+    --vgn: rgba(60, 55, 90, 0.16);
+    --grain-op: 0.13;
+    --grain-blend: multiply;
+    --panel-grad: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.55));
+    --panel-sheen: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #F2F1F7;
+      --surface: rgba(20, 18, 38, 0.02);
+      --text: #191727;
+      --text-dim: #5C5972;
+      --line: rgba(24, 20, 48, 0.14);
+      --accent: #6C5CE0;
+      --accent-2: #3F72D8;
+      --accent-deep: #5646C4;
+      --rec: #E5484D;
+      --glow: rgba(108, 92, 224, 0.22);
+      --vgn: rgba(60, 55, 90, 0.16);
+      --grain-op: 0.13;
+      --grain-blend: multiply;
+      --panel-grad: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.55));
+      --panel-sheen: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  :root { color-scheme: dark; }
+  :root[data-theme="light"] { color-scheme: light; }
+  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { color-scheme: light; } }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: radial-gradient(88% 52% at 74% -8%, var(--glow), transparent 62%);
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+    line-height: 1.65;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.07;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+
+  .wrap { max-width: 1200px; margin-inline: auto; padding-inline: clamp(20px, 5vw, 56px); }
+  .page { position: relative; z-index: 1; padding-bottom: 58px; }
+
+  :where(a, button, input, textarea):focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px;
+  }
+
+  /* ---------- background code field ---------- */
+  .codefield { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+  .glyph {
+    position: absolute;
+    font-family: var(--font-mono); font-weight: 500;
+    color: var(--gc, rgba(236, 234, 226, 0.08));
+    animation: drift var(--dur) linear var(--delay) infinite,
+               shimmer calc(var(--dur) / 8) ease-in-out infinite;
+  }
+  @keyframes drift {
+    0%   { transform: translate3d(0, 24px, 0) rotate(-5deg); opacity: 0; }
+    14%  { opacity: var(--maxo, 0.8); }
+    86%  { opacity: var(--maxo, 0.8); }
+    100% { transform: translate3d(var(--drift), -170px, 0) rotate(7deg); opacity: 0; }
+  }
+  @keyframes shimmer { 0%, 100% { filter: brightness(0.55); } 50% { filter: brightness(1.2); } }
+
+  /* ---------- comets: bare light streaks (compositor-only) ---------- */
+  .skyfield { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+  .comet {
+    position: absolute; top: var(--top); left: 0; height: 2px; width: var(--len);
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--ctail) 55%, var(--chead) 100%);
+    transform-origin: 0 50%; opacity: 0; will-change: transform, opacity;
+    animation: cometFly var(--gap) cubic-bezier(0.25, 0, 0.15, 1) var(--delay) infinite;
+  }
+  @keyframes cometFly {
+    0%   { transform: rotate(var(--ang)) translateX(-12vw); opacity: 0; }
+    2.5% { opacity: 1; }
+    13%  { opacity: 1; }
+    19%  { transform: rotate(var(--ang)) translateX(128vw); opacity: 0; }
+    100% { transform: rotate(var(--ang)) translateX(128vw); opacity: 0; }
+  }
+
+  /* ---------- overlays ---------- */
+  .vignette {
+    position: fixed; inset: 0; z-index: 40; pointer-events: none;
+    background: radial-gradient(125% 80% at 50% 32%, transparent 42%, var(--vgn) 100%);
+  }
+  .grain {
+    position: fixed; inset: 0; z-index: 41; pointer-events: none;
+    opacity: var(--grain-op); mix-blend-mode: var(--grain-blend);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+
+  /* ---------- bottom menu bar ---------- */
+  .bottom-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 12px clamp(16px, 5vw, 44px);
+    background: var(--bg);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid var(--line);
+  }
+  .bb-left { display: flex; align-items: center; gap: 0.6em; min-width: 0; }
+  .bb-right { display: flex; align-items: center; gap: clamp(0.9rem, 2.4vw, 1.9rem); }
+  .brand {
+    display: flex; align-items: center; gap: 0.55em;
+    font-family: var(--font-display); font-weight: 600; font-size: 0.98rem;
+    text-decoration: none; color: var(--text); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%; flex: none;
+    background: var(--rec); box-shadow: 0 0 8px var(--rec);
+    animation: blink 1.4s steps(1, end) infinite;
+  }
+  @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.15; } }
+  .bb-link { font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.04em; text-decoration: none; color: var(--text-dim); transition: color 0.2s; white-space: nowrap; }
+  .bb-link:hover { color: var(--text); }
+  .tc { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: 0.05em; }
+  .bottom-bar .btn { padding: 0.7em 1.2em; font-size: 0.74rem; }
+  @media (max-width: 780px) { .bb-link, .bottom-bar .tc { display: none; } }
+
+  /* ---------- gate: staged in as the pinned hero is scrolled ---------- */
+  .gate {
+    transition: opacity 0.7s ease var(--gd, 0s),
+                transform 0.95s cubic-bezier(0.2, 0.7, 0.2, 1) var(--gd, 0s),
+                filter 0.7s ease var(--gd, 0s);
+  }
+  .page[data-stage="0"] .gate,
+  .page[data-stage="1"] .gate {
+    opacity: 0;
+    transform: translate3d(var(--gx, 0), var(--gy, 0), 0) rotateX(var(--grx, 0)) rotateY(var(--gry, 0));
+    filter: blur(8px);
+    pointer-events: none;
+  }
+
+  .scroll-hint {
+    position: absolute; left: 50%; bottom: clamp(70px, 12vh, 120px);
+    transform: translateX(-50%); z-index: 6;
+    display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+    font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--text-dim); transition: opacity 0.5s ease;
+  }
+  .page[data-stage="2"] .scroll-hint,
+  .page[data-stage="3"] .scroll-hint,
+  .page[data-stage="4"] .scroll-hint { opacity: 0; pointer-events: none; }
+  .scroll-hint .chev {
+    width: 14px; height: 14px;
+    border-right: 1.5px solid var(--accent); border-bottom: 1.5px solid var(--accent);
+    animation: bob 1.6s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: rotate(45deg) translate(-2px, -2px); opacity: 0.35; }
+    50% { transform: rotate(45deg) translate(2px, 2px); opacity: 1; }
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5em;
+    font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.95em 1.5em; border-radius: 999px; border: 1px solid transparent;
+    cursor: pointer; text-decoration: none; white-space: nowrap;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .btn--primary {
+    background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+    color: var(--accent-ink);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 12px 34px -10px var(--glow);
+  }
+  .btn--primary:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 18px 44px -10px var(--glow); }
+  .btn--ghost { border-color: var(--line); color: var(--text); background: rgba(255, 255, 255, 0.02); }
+  .btn--ghost:hover { border-color: var(--text); transform: translateY(-2px); }
+
+  /* ---------- hero: pinned scroll track ---------- */
+  .hero-track { position: relative; height: 320vh; }
+  .hero-pin {
+    position: sticky; top: 0;
+    height: 100vh; height: 100svh;
+    display: flex; align-items: center;
+    overflow: hidden; perspective: 1200px;
+  }
+  .hero-inner {
+    position: relative; z-index: 5;
+    width: 100%; max-width: 1200px; margin-inline: auto;
+    padding-inline: clamp(20px, 5vw, 56px);
+    min-height: min(74vh, 600px);
+    display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;
+  }
+  /* persistent object canvas: fixed behind page content, travels with scroll */
+  .hero-canvas {
+    position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: -1; display: block;
+    pointer-events: none;
+  }
+  .hero-scrim {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: linear-gradient(to top, var(--bg), transparent 22%);
+    opacity: 0; transition: opacity 0.8s ease;
+  }
+  .page[data-stage="2"] .hero-scrim,
+  .page[data-stage="3"] .hero-scrim { opacity: 1; }
+
+  .theme-btn {
+    display: grid; place-items: center; flex: none;
+    width: 30px; height: 30px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--text-dim);
+    cursor: pointer; transition: color 0.2s, border-color 0.2s;
+  }
+  .theme-btn:hover { color: var(--text); border-color: var(--accent); }
+  .theme-btn svg { width: 15px; height: 15px; }
+
+  .backtop {
+    position: fixed; right: clamp(14px, 4vw, 34px); bottom: clamp(64px, 9vh, 82px); z-index: 55;
+    display: grid; place-items: center;
+    width: 42px; height: 42px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--text-dim); cursor: pointer;
+    background: var(--bg); background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: blur(10px);
+    opacity: 0; transform: translateY(10px); pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease, color 0.2s, border-color 0.2s;
+  }
+  .backtop:hover { color: var(--accent); border-color: var(--accent); }
+  .backtop svg { width: 16px; height: 16px; }
+  .page[data-stage="3"] .backtop,
+  .page[data-stage="4"] .backtop { opacity: 1; transform: none; pointer-events: auto; }
+
+  .hud {
+    position: absolute; top: clamp(52px, 8vh, 78px); left: 0; right: 0; z-index: 6;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    padding-inline: clamp(20px, 5vw, 56px);
+    font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .hud-rec { display: flex; align-items: center; gap: 0.5em; color: var(--text); }
+  .hud-fmt { display: flex; gap: 1.2em; }
+  @media (max-width: 700px) { .hud-mid { display: none; } }
+
+  /* name block — top-left, appears left to right */
+  .name-block { align-self: flex-start; max-width: 50%; }
+  .hero-name { font-size: clamp(1.9rem, 4.8vw, 3.5rem); font-weight: 700; margin: 0; }
+  @media (max-width: 900px) { .name-block { max-width: 70%; } }
+  @media (max-width: 640px) { .name-block { max-width: 100%; } }
+  .hero-name span { display: block; }
+  .hero-name .l1 { color: var(--text); }
+  .hero-name .l2 {
+    background: linear-gradient(176deg, var(--accent-2) 4%, var(--accent) 52%, var(--accent-deep) 120%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 8px 26px var(--glow));
+  }
+  .role-line {
+    display: inline-flex; align-items: center; gap: 0.7em; margin-top: 0.9rem;
+    font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .role-line .r-arrow { width: 24px; height: 9px; flex: none; }
+
+  .hero-foot { align-self: flex-start; display: flex; flex-direction: column; gap: 1.4rem; max-width: 34rem; }
+  .lead { font-size: clamp(1rem, 2vw, 1.26rem); line-height: 1.5; max-width: 30ch; color: var(--text); margin: 0; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+  .vf-corner { position: absolute; width: 24px; height: 24px; border: 2px solid var(--text-dim); opacity: 0.7; z-index: 4; pointer-events: none; }
+  .vf-corner.tl { top: clamp(56px, 9vh, 84px); left: clamp(18px, 5vw, 48px); border-right: 0; border-bottom: 0; }
+  .vf-corner.tr { top: clamp(56px, 9vh, 84px); right: clamp(18px, 5vw, 48px); border-left: 0; border-bottom: 0; }
+  .vf-corner.bl { bottom: clamp(64px, 10vh, 92px); left: clamp(18px, 5vw, 48px); border-right: 0; border-top: 0; }
+  .vf-corner.br { bottom: clamp(64px, 10vh, 92px); right: clamp(18px, 5vw, 48px); border-left: 0; border-top: 0; }
+  .vf-reticle { position: absolute; top: 50%; left: 50%; width: 18px; height: 18px; transform: translate(-50%, -50%); z-index: 3; opacity: 0.25; }
+  .vf-reticle::before, .vf-reticle::after { content: ""; position: absolute; background: var(--text); }
+  .vf-reticle::before { left: 50%; top: 0; width: 1px; height: 100%; transform: translateX(-0.5px); }
+  .vf-reticle::after { top: 50%; left: 0; height: 1px; width: 100%; transform: translateY(-0.5px); }
+  @media (max-width: 700px) { .vf-reticle { display: none; } }
+
+  /* stat tags with arrows, stacked at the right edge, pointing at the object */
+  .hero-tags { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+  .hero-tag {
+    position: absolute; right: clamp(10px, 3vw, 30px);
+    display: flex; align-items: center; gap: 0.55rem; font-family: var(--font-mono);
+  }
+  .hero-tag .ht-arrow { color: var(--accent); flex: none; width: 30px; height: 11px; transform: scaleX(-1); filter: drop-shadow(0 0 6px var(--bg)); }
+  .hero-tag .ht-txt { line-height: 1.3; text-shadow: 0 0 14px var(--bg), 0 0 5px var(--bg); }
+  .hero-tag .ht-label { display: block; font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); }
+  .hero-tag .ht-value { font-size: 0.8rem; font-weight: 600; color: var(--text); }
+  .hero-tag.t1 { top: 24%; }
+  .hero-tag.t2 { top: 40%; }
+  .hero-tag.t3 { top: 56%; }
+  .hero-tag.t4 { top: 72%; }
+  @media (max-width: 640px) { .hero-tag { display: none; } }
+
+  /* ---------- stat (scenes strip) ---------- */
+  .stat { display: flex; flex-direction: column; gap: 0.3rem; padding-left: 0.9rem; border-left: 2px solid var(--accent); }
+  .stat-label { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
+  .stat-value { font-family: var(--font-mono); font-weight: 600; font-size: clamp(1rem, 2vw, 1.22rem); color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+  .stat-sub { font-size: 0.78rem; color: var(--text-dim); }
+
+  .strip { border-block: 1px solid var(--line); background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent); perspective: 1200px; }
+  .strip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 3vw, 32px); padding-block: clamp(30px, 5vw, 46px); }
+  @media (max-width: 820px) { .strip-grid { grid-template-columns: repeat(2, 1fr); row-gap: 26px; } }
+
+  /* ---------- scenes ---------- */
+  .scene { padding-block: clamp(74px, 12vw, 132px); position: relative; perspective: 1100px; }
+  .scene + .scene { border-top: 1px solid var(--line); }
+  .scene-head { margin-bottom: clamp(2.4rem, 6vw, 3.6rem); max-width: 46ch; }
+  .scene-head h2 { font-size: clamp(1.9rem, 4.6vw, 3rem); margin-top: 0.4rem; }
+  .kicker {
+    font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); display: flex; align-items: center; gap: 0.6em; margin: 0;
+  }
+  .kicker-dim { color: var(--text-dim); letter-spacing: 0.14em; }
+  .scene-rec { width: 7px; height: 7px; border-radius: 50%; background: var(--rec); box-shadow: 0 0 8px var(--rec); animation: blink 1.4s steps(1, end) infinite; }
+
+  /* about */
+  .take { display: grid; grid-template-columns: 92px 1fr; gap: clamp(1rem, 3vw, 2rem); align-items: start; }
+  .take + .take { margin-top: clamp(1.6rem, 4vw, 2.4rem); }
+  .take-tag { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); padding-top: 0.4rem; }
+  .take-body { font-size: 1.06rem; color: var(--text); margin: 0; max-width: 60ch; }
+  .take:first-child .take-body { font-size: clamp(1.16rem, 2.2vw, 1.34rem); color: #FFF; line-height: 1.55; }
+  @media (max-width: 620px) { .take { grid-template-columns: 1fr; gap: 0.45rem; } }
+
+  /* panels / cards */
+  .panel {
+    background: var(--panel-grad);
+    border: 1px solid var(--line);
+    box-shadow: var(--panel-sheen), 0 30px 60px -34px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+  }
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(14px, 2vw, 22px); }
+  .cards > * { min-width: 0; }
+  @media (max-width: 820px) { .cards { grid-template-columns: 1fr; } }
+  .card { padding: clamp(22px, 3vw, 32px); border-radius: 16px; display: flex; flex-direction: column; gap: 0.85rem; height: 100%; transition: transform 0.2s ease, border-color 0.2s ease; }
+  .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .card-ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-wash); color: var(--accent); }
+  .card-ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .card h3 { font-family: var(--font-body); font-weight: 600; font-size: 1.16rem; letter-spacing: 0; line-height: 1.3; }
+  .card p { margin: 0; color: var(--text-dim); font-size: 0.98rem; }
+  .card-meta { margin-top: auto; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
+
+  /* reviews */
+  .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 26px); }
+  .quotes > * { min-width: 0; }
+  @media (max-width: 860px) { .quotes { grid-template-columns: 1fr; } }
+  .quote { padding: clamp(20px, 3vw, 28px); border-radius: 14px; display: flex; flex-direction: column; gap: 1.2rem; height: 100%; }
+  .quote blockquote { margin: 0; font-size: 1.02rem; line-height: 1.55; color: var(--text); }
+  .quote blockquote::before { content: "„"; font-family: var(--font-display); color: var(--accent); font-size: 2.4rem; line-height: 0; display: block; margin-bottom: 0.6rem; }
+  .quote figcaption { font-family: var(--font-mono); font-size: 0.76rem; line-height: 1.6; color: var(--text-dim); }
+  .quote figcaption b { display: block; color: var(--text); font-weight: 500; }
+
+  /* contact */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 4.5rem); align-items: start; }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-intro p { color: var(--text-dim); max-width: 34ch; }
+  .channels { list-style: none; margin: 2rem 0 0; padding: 0; }
+  .channels li { border-top: 1px solid var(--line); }
+  .channels li:last-child { border-bottom: 1px solid var(--line); }
+  .channels a { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; text-decoration: none; color: var(--text); transition: color 0.2s, padding-left 0.2s; }
+  .channels a:hover { color: var(--accent); padding-left: 0.4rem; }
+  .channels .cl { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); width: 84px; flex: none; }
+  @media (max-width: 620px) { .channels a { flex-wrap: wrap; gap: 0.3rem 1rem; } }
+
+  .cform { padding: clamp(22px, 3vw, 30px); border-radius: 16px; display: flex; flex-direction: column; gap: 1rem; }
+  .field { display: flex; flex-direction: column; gap: 0.4rem; }
+  .field label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--text-dim); }
+  .field input, .field textarea {
+    font-family: var(--font-body); font-size: 1rem; color: var(--text);
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 0.8rem 0.9rem; width: 100%;
+    transition: border-color 0.18s, box-shadow 0.18s;
+  }
+  .field textarea { resize: vertical; min-height: 120px; }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-wash); }
+  .form-note { font-family: var(--font-mono); font-size: 0.72rem; margin: 0; }
+  .cform .btn--primary { align-self: flex-start; border: none; }
+
+  /* footer */
+  .site-footer { border-top: 1px solid var(--line); }
+  .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-block: 2.4rem; font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-dim); letter-spacing: 0.06em; }
+  .site-footer b { color: var(--text); font-weight: 500; }
+  .reel-end { color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; }
+
+  @media (max-width: 620px) { .hero { min-height: 520px; } }
+
+  /* ---------- fly-in / reveal ---------- */
+  .fly {
+    animation: flyIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: var(--ad, 0s);
+  }
+  @keyframes flyIn {
+    from {
+      opacity: 0;
+      transform: perspective(720px) translate3d(var(--dx, 0), var(--dy, 0), 0) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
+      filter: blur(12px);
+    }
+    to { opacity: 1; transform: none; filter: none; }
+  }
+  .rev {
+    opacity: 0;
+    transform: perspective(720px) translate3d(var(--dx, 0), var(--dy, 0), 0) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
+    filter: blur(9px);
+    transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.6s ease;
+    transition-delay: var(--ad, 0s);
+    animation: revSafety 0.5s ease 4.5s forwards;
+  }
+  .rev.in { opacity: 1; transform: none; filter: none; }
+  @keyframes revSafety { to { opacity: 1; transform: none; filter: none; } }
+  .cards > .rev, .quotes > .rev { display: flex; }
+  .cards > .rev > *, .quotes > .rev > * { flex: 1 1 auto; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .glyph { animation: none; opacity: 0.5; }
+    .dot, .scene-rec, .scroll-hint .chev { animation: none; }
+    .comet { animation: none; opacity: 0; }
+    .grain { opacity: 0.15; }
+    .btn:hover, .card:hover { transform: none; }
+    .fly { animation: none; }
+    .rev { opacity: 1; transform: none; filter: none; transition: none; }
+    .page[data-stage="0"] .gate, .page[data-stage="1"] .gate { transform: none !important; filter: none !important; }
+    .gate { transition: opacity 0.25s ease; }
+  }
+</style>
+</head>
+<body>
+<div id="root">
+  <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;color:#ECEAF3;text-align:center;">
+    <div>
+      <p style="font-family:monospace;letter-spacing:.24em;color:#A99CF5;text-transform:uppercase;font-size:.78rem;margin:0 0 12px;">Маркетологиня</p>
+      <h1 style="font-family:'Unbounded',sans-serif;font-size:clamp(2.4rem,8vw,4rem);margin:0 0 16px;">Анна Мироненко</h1>
+      <p style="color:#8C8AA0;max-width:40ch;margin:0 auto 20px;">Системний маркетинг для малого та середнього бізнесу — щоб рішення спиралися на дані, а не на інтуїцію.</p>
+      <a href="mailto:hello@annamyronenko.com" style="color:#A99CF5;font-family:monospace;">hello@annamyronenko.com</a>
+    </div>
+  </div>
+</div>
+
+<script>window.process = window.process || { env: { NODE_ENV: 'production' } }; window.global = window.global || window;</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/htm/3.1.1/htm.js"></script>
+<script>
+(function () {
+  if (!window.React || !window.ReactDOM || !window.htm) return;
+
+  var React = window.React, ReactDOM = window.ReactDOM;
+  var useState = React.useState, useEffect = React.useEffect, useRef = React.useRef, useMemo = React.useMemo;
+  var html = window.htm.bind(React.createElement);
+
+  /* ---- reduced-motion hook ---- */
+  function useRM() {
+    var s = useState(false), rm = s[0], set = s[1];
+    useEffect(function () {
+      var m = window.matchMedia('(prefers-reduced-motion: reduce)');
+      var f = function () { set(m.matches); };
+      f();
+      if (m.addEventListener) m.addEventListener('change', f); else m.addListener(f);
+      return function () { if (m.removeEventListener) m.removeEventListener('change', f); else m.removeListener(f); };
+    }, []);
+    return rm;
+  }
+
+  var DIRS = {
+    top:    { y: -84, rx: 22 },
+    bottom: { y: 84, rx: -22 },
+    left:   { x: -120, ry: -20 },
+    right:  { x: 120, ry: 20 },
+    tl: { x: -84, y: -56, rx: 16, ry: -14 },
+    tr: { x: 84, y: -56, rx: 16, ry: 14 },
+    bl: { x: -84, y: 56, rx: -16, ry: -14 },
+    br: { x: 84, y: 56, rx: -16, ry: 14 }
+  };
+
+  function animStyle(props) {
+    var d = DIRS[props.from || 'bottom'] || {};
+    return {
+      '--dx': (d.x || 0) + 'px', '--dy': (d.y || 0) + 'px',
+      '--rx': (d.rx || 0) + 'deg', '--ry': (d.ry || 0) + 'deg',
+      '--ad': (props.delay || 0) + 's'
+    };
+  }
+  /* ---- drive scroll stage (0..4) on the pinned hero track ---- */
+  var HERO_TRACK = 2.2; /* screens of pinned scroll */
+  function stageFromScroll() {
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var vh = window.innerHeight || 1;
+    var hp = Math.max(0, Math.min(1, y / (vh * HERO_TRACK)));
+    if (hp < 0.16) return 0;
+    if (hp < 0.40) return 1;
+    if (hp < 0.66) return 2;
+    if (hp < 0.86) return 3;
+    return 4;
+  }
+  function useStageTarget(ref) {
+    useEffect(function () {
+      var el = ref.current;
+      var raf = 0;
+      var apply = function () {
+        raf = 0;
+        if (el) el.setAttribute('data-stage', String(stageFromScroll()));
+      };
+      var onScroll = function () { if (!raf) raf = requestAnimationFrame(apply); };
+      apply();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      return function () {
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
+        if (raf) cancelAnimationFrame(raf);
+      };
+    }, []);
+  }
+
+  function Gate(props) {
+    var d = DIRS[props.from || 'bottom'] || {};
+    var style = {
+      '--gx': (d.x || 0) + 'px', '--gy': (d.y || 0) + 'px',
+      '--grx': (d.rx || 0) + 'deg', '--gry': (d.ry || 0) + 'deg',
+      '--gd': (props.delay || 0) + 's'
+    };
+    return html`<div className=${'gate' + (props.className ? ' ' + props.className : '')} style=${style}>${props.children}</div>`;
+  }
+
+  var ArrowR = html`<svg className="r-arrow" viewBox="0 0 26 10" fill="none" aria-hidden="true"><path d="M0 5h20M17 1l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  var TagArrow = html`<svg className="ht-arrow" viewBox="0 0 34 12" fill="none" aria-hidden="true"><path d="M0 6h26M22 1.5l6 4.5-6 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+  function BackTop() {
+    return html`<button className="backtop" type="button" aria-label="Нагору"
+      onClick=${function () { try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, 0); } }}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>`;
+  }
+
+  var IconSun = html`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2 2M17.1 17.1l2 2M19.1 4.9l-2 2M6.9 17.1l-2 2"/></svg>`;
+  var IconMoon = html`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>`;
+
+  /* ---- fly in on mount (hero assemble) — pure CSS, always ends visible ---- */
+  function Fly(props) {
+    return html`<div className=${'fly' + (props.className ? ' ' + props.className : '')} style=${animStyle(props)}>${props.children}</div>`;
+  }
+
+  /* ---- reveal on scroll (sections assemble like frames) ---- */
+  function Reveal(props) {
+    var ref = useRef(null);
+    var st = useState(false), shown = st[0], setShown = st[1];
+    useEffect(function () {
+      var el = ref.current;
+      var done = false;
+      var show = function () { if (!done) { done = true; setShown(true); } };
+      if (!el || !('IntersectionObserver' in window)) { show(); return; }
+      var io = new IntersectionObserver(function (en) {
+        if (en[0].isIntersecting) { show(); io.disconnect(); }
+      }, { threshold: props.amount || 0.15, rootMargin: '0px 0px -5% 0px' });
+      io.observe(el);
+      var t = setTimeout(function () { show(); io.disconnect(); }, 2500);
+      return function () { io.disconnect(); clearTimeout(t); };
+    }, []);
+    return html`<div ref=${ref} className=${'rev' + (shown ? ' in' : '') + (props.className ? ' ' + props.className : '')} style=${animStyle(props)}>${props.children}</div>`;
+  }
+
+  /* ---- background code field (multi-colour fragments) ---- */
+  var GLYPHS = ['</>', '{ }', '( )', '=>', '[ ]', ';', '&&', '||', '//', '::', 'fn', '{...}', '<a>', '===', '!==', 'const', 'let', 'return', '01', '1010', '#', '=>{}'];
+  var GLYPH_COLORS = [
+    'rgba(231, 178, 76, 0.14)',
+    'rgba(122, 170, 255, 0.13)',
+    'rgba(120, 224, 172, 0.12)',
+    'rgba(255, 122, 102, 0.11)',
+    'rgba(198, 150, 255, 0.12)',
+    'rgba(236, 234, 226, 0.08)'
+  ];
+  function CodeField() {
+    var items = useMemo(function () {
+      var n = window.innerWidth < 640 ? 16 : 30;
+      var arr = [];
+      for (var i = 0; i < n; i++) {
+        arr.push({
+          g: GLYPHS[(Math.random() * GLYPHS.length) | 0],
+          gc: GLYPH_COLORS[(Math.random() * GLYPH_COLORS.length) | 0],
+          left: Math.random() * 100,
+          top: Math.random() * 100,
+          size: 11 + Math.random() * 17,
+          dur: 26 + Math.random() * 38,
+          delay: -Math.random() * 50,
+          drift: (Math.random() * 2 - 1) * 44,
+          maxo: 0.4 + Math.random() * 0.45
+        });
+      }
+      return arr;
+    }, []);
+    return html`
+      <div className="codefield" aria-hidden="true">
+        ${items.map(function (it, i) {
+          return html`<span
+            key=${i}
+            className="glyph"
+            style=${{ left: it.left + '%', top: it.top + '%', fontSize: it.size + 'px', '--gc': it.gc, '--dur': it.dur + 's', '--delay': it.delay + 's', '--drift': it.drift + 'px', '--maxo': it.maxo }}
+          >${it.g}</span>`;
+        })}
+      </div>`;
+  }
+
+  /* ---- occasional comets streaking across the background ---- */
+  function SkyField() {
+    var comets = useMemo(function () {
+      var n = window.innerWidth < 640 ? 3 : 5;
+      var arr = [];
+      for (var i = 0; i < n; i++) {
+        var blue = Math.random() < 0.5;
+        arr.push({
+          top: Math.random() * 66,
+          len: 150 + Math.random() * 220,
+          ang: 13 + Math.random() * 26,
+          gap: 22 + Math.random() * 34,
+          delay: -Math.random() * 55,
+          ctail: blue ? 'rgba(127, 178, 255, 0.5)' : 'rgba(174, 150, 255, 0.5)',
+          chead: blue ? 'rgba(224, 238, 255, 0.95)' : 'rgba(232, 224, 255, 0.95)'
+        });
+      }
+      return arr;
+    }, []);
+    return html`
+      <div className="skyfield" aria-hidden="true">
+        ${comets.map(function (c, i) {
+          return html`<span key=${i} className="comet" style=${{
+            '--top': c.top + '%', '--len': c.len + 'px', '--ang': c.ang + 'deg',
+            '--gap': c.gap + 's', '--delay': c.delay + 's',
+            '--ctail': c.ctail, '--chead': c.chead
+          }}></span>`;
+        })}
+      </div>`;
+  }
+
+  /* ---- timecode ---- */
+  function fmtTC(sec) {
+    var f = Math.floor((sec * 24) % 24);
+    var s = Math.floor(sec) % 60;
+    var m = Math.floor(sec / 60) % 60;
+    var hh = Math.floor(sec / 3600) % 100;
+    var p = function (n) { return (n < 10 ? '0' : '') + n; };
+    return p(hh) + ':' + p(m) + ':' + p(s) + ':' + p(f);
+  }
+  function Timecode() {
+    var ref = useRef(null);
+    useEffect(function () {
+      var reduced = false;
+      try { reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+      if (reduced) { if (ref.current) ref.current.textContent = '00:04:12:06'; return; }
+      var t0 = Date.now();
+      var id = setInterval(function () {
+        if (ref.current) ref.current.textContent = fmtTC((Date.now() - t0) / 1000);
+      }, 42);
+      return function () { clearInterval(id); };
+    }, []);
+    return html`<span className="tc" ref=${ref}>00:00:00:00</span>`;
+  }
+
+  function Stat(p) {
+    return html`
+      <div className="stat">
+        <span className="stat-label">${p.label}</span>
+        <span className="stat-value">${p.value}</span>
+        ${p.sub ? html`<span className="stat-sub">${p.sub}</span>` : null}
+      </div>`;
+  }
+
+  var ICONS = {
+    audit: html`<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><line x1="20" y1="20" x2="15.5" y2="15.5"/><path d="M8.5 11h1.8M11 8.5v5M13 11h1.5"/></svg>`,
+    strategy: html`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/></svg>`,
+    consult: html`<svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-4 4V16H4z"/><path d="M8 9h8M8 12h5"/></svg>`,
+    ads: html`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>`
+  };
+
+  var SERVICES = [
+    { ic: 'audit', t: 'Аудит маркетингу', d: 'Розбираю ваші канали, аналітику, воронку та юніт-економіку. На виході — звіт із точками росту, помилками й пріоритетами на найближчі 3 місяці.', m: '1–2 тижні · звіт + зустріч' },
+    { ic: 'strategy', t: 'Стратегія просування', d: 'Позиціонування, сегменти аудиторії, набір каналів і розподіл бюджету. Готовий план дій із метриками, за яким може працювати команда або підрядники.', m: '3–4 тижні · документ + впровадження' },
+    { ic: 'consult', t: 'Консультації', d: 'Годинна сесія з розбором конкретного запиту: запуск продукту, перевірка гіпотез, найм маркетолога, вибір агенції чи фрилансера. Коротко й по суті.', m: '60 хв · онлайн + конспект' },
+    { ic: 'ads', t: 'Налаштування реклами', d: 'Google Ads і Meta: структура кампаній, налаштування аналітики та наскрізної звітності. Запуск під ключ або аудит наявних рекламних кабінетів.', m: 'запуск під ключ або аудит' }
+  ];
+
+  var REVIEWS = [
+    { q: 'За два місяці роботи ми перебудували воронку й знизили вартість заявки на 34%. Анна не продає інструменти — вона спершу розбирається в бізнесі, а вже потім пропонує рішення.', n: 'Олег Гриценко', r: 'засновник, меблева майстерня «Дубова»' },
+    { q: 'Нарешті маркетинг перестав бути чорною скринькою. Маємо чіткий план, зрозумілі метрики щотижня й спільну мову між командою та підрядниками.', n: 'Марина Дідух', r: 'CMO, освітня платформа SkillUP' },
+    { q: 'Одна консультація зекономила нам місяці спроб навмання. Дуже структурно: пішли із зустрічі з конкретним списком дій на квартал.', n: 'Андрій Пелех', r: 'CEO, SaaS-стартап Formly' }
+  ];
+
+  function ContactForm() {
+    var eS = useState(''), err = eS[0], setErr = eS[1];
+    var nS = useState('Кнопка відкриє ваш поштовий застосунок із готовим листом.'), note = nS[0], setNote = nS[1];
+    function submit(ev) {
+      ev.preventDefault();
+      var f = ev.target;
+      var name = f.elements.name.value.trim();
+      var contact = f.elements.contact.value.trim();
+      var message = f.elements.message.value.trim();
+      if (!name || !contact || !message) { setErr('Будь ласка, заповніть усі поля.'); return; }
+      setErr('');
+      var subject = 'Запит із сайту — ' + name;
+      var body = 'Ім’я: ' + name + '\nКонтакт: ' + contact + '\n\n' + message + '\n';
+      window.location.href = 'mailto:hello@annamyronenko.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      setNote('Відкриваємо поштовий застосунок… Якщо нічого не сталося — напишіть у Telegram.');
+    }
+    return html`
+      <form className="cform panel" onSubmit=${submit} noValidate>
+        <div className="field">
+          <label htmlFor="f-name">Ім'я</label>
+          <input id="f-name" name="name" type="text" autoComplete="name" />
+        </div>
+        <div className="field">
+          <label htmlFor="f-contact">Email або нік у месенджері</label>
+          <input id="f-contact" name="contact" type="text" />
+        </div>
+        <div className="field">
+          <label htmlFor="f-message">Коротко про задачу</label>
+          <textarea id="f-message" name="message" rows="4"></textarea>
+        </div>
+        <button type="submit" className="btn btn--primary">Надіслати повідомлення</button>
+        <p className="form-note" style=${{ color: err ? 'var(--rec)' : 'var(--text-dim)' }}>${err || note}</p>
+      </form>`;
+  }
+
+  function SceneHead(p) {
+    return html`
+      <${Reveal} from="left" className="scene-head">
+        <p className="kicker"><span className="scene-rec"></span>СЦЕНА ${p.n}<span className="kicker-dim"> — ${p.kicker}</span></p>
+        ${p.title ? html`<h2>${p.title}</h2>` : null}
+      <//>`;
+  }
+
+  function HeroCanvas() {
+    var ref = useRef(null);
+    var hoverRef = useRef(false);
+    useEffect(function () {
+      var canvas = ref.current;
+      if (!canvas) return;
+      var cancelled = false, poll = null, teardown = null;
+
+      function init() {
+      if (cancelled || !canvas || !window.THREE) return;
+      var THREE = window.THREE;
+      var reduced = false;
+      try { reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+      var renderer;
+      try {
+        renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+      } catch (e) { return; }
+      renderer.setClearColor(0x000000, 0);
+
+      var coarse = false;
+      try { coarse = window.matchMedia('(pointer: coarse)').matches; } catch (e) {}
+      var isMobile = coarse || Math.min(window.innerWidth, window.innerHeight) < 640;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2));
+
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+      camera.position.set(0, 0, 4.05);
+      var group = new THREE.Group();
+      scene.add(group);
+
+      var noiseGLSL = [
+        'vec3 mod289(vec3 x){return x - floor(x*(1.0/289.0))*289.0;}',
+        'vec4 mod289(vec4 x){return x - floor(x*(1.0/289.0))*289.0;}',
+        'vec4 permute(vec4 x){return mod289(((x*34.0)+1.0)*x);}',
+        'vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314*r;}',
+        'float snoise(vec3 v){',
+        '  const vec2 C = vec2(1.0/6.0, 1.0/3.0);',
+        '  const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);',
+        '  vec3 i  = floor(v + dot(v, C.yyy));',
+        '  vec3 x0 = v - i + dot(i, C.xxx);',
+        '  vec3 g = step(x0.yzx, x0.xyz);',
+        '  vec3 l = 1.0 - g;',
+        '  vec3 i1 = min(g.xyz, l.zxy);',
+        '  vec3 i2 = max(g.xyz, l.zxy);',
+        '  vec3 x1 = x0 - i1 + C.xxx;',
+        '  vec3 x2 = x0 - i2 + C.yyy;',
+        '  vec3 x3 = x0 - D.yyy;',
+        '  i = mod289(i);',
+        '  vec4 p = permute( permute( permute(',
+        '           i.z + vec4(0.0, i1.z, i2.z, 1.0))',
+        '         + i.y + vec4(0.0, i1.y, i2.y, 1.0))',
+        '         + i.x + vec4(0.0, i1.x, i2.x, 1.0));',
+        '  float n_ = 0.142857142857;',
+        '  vec3 ns = n_ * D.wyz - D.xzx;',
+        '  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);',
+        '  vec4 x_ = floor(j * ns.z);',
+        '  vec4 y_ = floor(j - 7.0 * x_);',
+        '  vec4 x = x_ * ns.x + ns.yyyy;',
+        '  vec4 y = y_ * ns.x + ns.yyyy;',
+        '  vec4 h = 1.0 - abs(x) - abs(y);',
+        '  vec4 b0 = vec4(x.xy, y.xy);',
+        '  vec4 b1 = vec4(x.zw, y.zw);',
+        '  vec4 s0 = floor(b0)*2.0 + 1.0;',
+        '  vec4 s1 = floor(b1)*2.0 + 1.0;',
+        '  vec4 sh = -step(h, vec4(0.0));',
+        '  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy;',
+        '  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww;',
+        '  vec3 p0 = vec3(a0.xy, h.x);',
+        '  vec3 p1 = vec3(a0.zw, h.y);',
+        '  vec3 p2 = vec3(a1.xy, h.z);',
+        '  vec3 p3 = vec3(a1.zw, h.w);',
+        '  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));',
+        '  p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;',
+        '  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);',
+        '  m = m * m;',
+        '  return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));',
+        '}'
+      ].join('\n');
+
+      var uniforms = {
+        uTime: { value: 0 }, uMorph: { value: 0 }, uHover: { value: 0 },
+        uPointDir: { value: new THREE.Vector3(0, 0, -1) }, uPointAmt: { value: 0 },
+        uColorA: { value: new THREE.Color('#3a3168') },
+        uColorB: { value: new THREE.Color('#b3a6ff') },
+        uColorC: { value: new THREE.Color('#ece7ff') }
+      };
+
+      var vert = [
+        noiseGLSL,
+        'uniform float uTime;',
+        'uniform float uMorph;',
+        'uniform vec3 uPointDir;',
+        'uniform float uPointAmt;',
+        'varying vec3 vNormal;',
+        'varying vec3 vView;',
+        'varying float vDisp;',
+        'float fbm(vec3 p){ float s=0.0; float a=0.5; for(int i=0;i<4;i++){ s+=a*snoise(p); p*=2.0; a*=0.5; } return s; }',
+        'float shapeA(vec3 d){',
+        '  float n = fbm(d*1.15 + vec3(0.0, uTime*0.14, 0.0));',
+        '  float ridges = 1.0 - abs(snoise(d*2.2 + uTime*0.05));',
+        '  return 0.30*n + 0.11*pow(ridges, 2.0);',
+        '}',
+        'float shapeB(vec3 d){',
+        '  float cont = smoothstep(0.02, 0.55, fbm(d*1.45));',
+        '  float terr = 0.030*fbm(d*4.2);',
+        '  return 0.085*cont + terr;',
+        '}',
+        'float ptBump(vec3 d){',
+        '  vec3 vd = normalize((modelViewMatrix * vec4(d, 0.0)).xyz);',
+        '  float a = max(0.0, dot(vd, uPointDir));',
+        '  return (pow(a, 5.0) * 0.16 - pow(a, 1.6) * 0.04) * uPointAmt;',
+        '}',
+        'vec3 finalPos(vec3 d){',
+        '  float v = mix(shapeA(d), shapeB(d), uMorph) + ptBump(d);',
+        '  return d * (1.0 + v);',
+        '}',
+        'void main(){',
+        '  vec3 d = normalize(position);',
+        '  vec3 pos = finalPos(d);',
+        '  vec3 tang = normalize(cross(d, vec3(0.0, 1.0, 0.0)) + vec3(0.0001, 0.0, 0.0));',
+        '  vec3 bitg = normalize(cross(d, tang));',
+        '  float e = 0.02;',
+        '  vec3 pa = finalPos(normalize(d + tang*e));',
+        '  vec3 pb = finalPos(normalize(d + bitg*e));',
+        '  vec3 nrm = normalize(cross(pa - pos, pb - pos));',
+        '  nrm *= sign(dot(nrm, d) + 0.0001);',
+        '  vDisp = length(pos) - 1.0;',
+        '  vNormal = normalize(normalMatrix * nrm);',
+        '  vec4 mv = modelViewMatrix * vec4(pos, 1.0);',
+        '  vView = -mv.xyz;',
+        '  gl_Position = projectionMatrix * mv;',
+        '}'
+      ].join('\n');
+
+      var frag = [
+        'uniform vec3 uColorA;',
+        'uniform vec3 uColorB;',
+        'uniform vec3 uColorC;',
+        'uniform float uMorph;',
+        'uniform float uHover;',
+        'varying vec3 vNormal;',
+        'varying vec3 vView;',
+        'varying float vDisp;',
+        'void main(){',
+        '  vec3 N = normalize(vNormal);',
+        '  vec3 V = normalize(vView);',
+        '  vec3 L = normalize(vec3(0.55, 0.82, 0.7));',
+        '  float diff = clamp(dot(N, L), 0.0, 1.0);',
+        '  float fres = pow(1.0 - clamp(dot(N, V), 0.0, 1.0), 3.0);',
+        '  vec3 H = normalize(L + V);',
+        '  float spec = pow(clamp(dot(N, H), 0.0, 1.0), 64.0);',
+        '  vec3 pink = vec3(1.0, 0.49, 0.83);',
+        '  vec3 blue = vec3(0.36, 0.62, 1.0);',
+        '  vec3 glowHot = mix(pink, blue, clamp(fres * 1.5 + 0.12, 0.0, 1.0));',
+        '  vec3 glow = mix(uColorB, glowHot, uHover);',
+        '  vec3 bodyC = mix(uColorA, vec3(0.44, 0.17, 0.44), uHover);',
+        '  vec3 base = mix(bodyC * 0.8, bodyC * 2.2, diff) + uColorC * 0.05;',
+        '  base += vDisp * 1.1 * glow * 0.34;',
+        '  base += glow * pow(diff, 2.0) * (0.10 + 0.14*uHover);',
+        '  vec3 col = base + glow * fres * (0.42 + 0.55*uHover) + uColorC * spec * 0.55;',
+        '  col = pow(max(col, 0.0), vec3(0.92));',
+        '  gl_FragColor = vec4(col, 1.0);',
+        '}'
+      ].join('\n');
+
+      var mesh = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(1, isMobile ? 22 : 46),
+        new THREE.ShaderMaterial({ uniforms: uniforms, vertexShader: vert, fragmentShader: frag })
+      );
+      group.add(mesh);
+
+      var hAccum = 0, spinY = 0, uHover = 0, uMorphCur = 0, uPtAmt = 0, ptMove = 0, last = 0, raf = 0;
+      var running = false, inView = true, pageVisible = true;
+      var tpx = 0, tpy = 0, px = 0, py = 0, lastTpx = 0, lastTpy = 0;
+      var objPosX = 0, objPosY = 0.03, objScl = 0.5, baseS = 0.5, hw = 2, hh = 1;
+
+      function ss(a, b, x) { var t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
+
+      function progress() {
+        var vh = window.innerHeight || 1;
+        var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+        var track = vh * 2.2;
+        var hp = Math.max(0, Math.min(1, y / track));
+        var docH = document.documentElement.scrollHeight || vh;
+        var span = Math.max(1, docH - vh - track);
+        var fp = Math.max(0, Math.min(1, (y - track) / span));
+        return hp + fp;
+      }
+
+      function resize() {
+        var w = canvas.clientWidth, h = canvas.clientHeight;
+        if (!w || !h) return;
+        renderer.setSize(w, h, false);
+        var aspect = w / h;
+        camera.aspect = aspect;
+        camera.updateProjectionMatrix();
+        hh = Math.tan(camera.fov * 0.5 * Math.PI / 180) * camera.position.z;
+        hw = hh * aspect;
+        baseS = (isMobile ? 0.7 : 0.52) * (aspect < 1 ? Math.max(0.72, aspect * 1.12) : 1);
+      }
+
+      function apply(dt) {
+        var gp = progress();
+        var lp = dt > 0 ? (1 - Math.exp(-dt * 4.0)) : 1;
+
+        /* shape morphs with scroll (no ring) */
+        var mT = ss(0.12, 0.44, gp);
+        uMorphCur += (mT - uMorphCur) * (dt > 0 ? (1 - Math.exp(-dt * 2.6)) : 1);
+        uniforms.uMorph.value = uMorphCur;
+
+        /* colour: pink only while the cursor is over the sphere, otherwise violet */
+        var ht = hoverRef.current ? 1 : 0;
+        uHover += (ht - uHover) * (dt > 0 ? (1 - Math.exp(-dt * 3.5)) : 1);
+        uniforms.uHover.value = uHover;
+
+        var pk = 1 - Math.exp(-dt * 4);
+        px += (tpx - px) * (dt > 0 ? pk : 1);
+        py += (tpy - py) * (dt > 0 ? pk : 1);
+
+        /* cursor pokes the surface: bump follows the pointer, fades when idle */
+        var moved = Math.abs(tpx - lastTpx) + Math.abs(tpy - lastTpy);
+        lastTpx = tpx; lastTpy = tpy;
+        ptMove += (Math.min(1, moved * 60) - ptMove) * (dt > 0 ? (1 - Math.exp(-dt * 6)) : 1);
+        var ptT = hoverRef.current ? (0.45 + 0.55 * ptMove) : 0;
+        uPtAmt += (ptT - uPtAmt) * (dt > 0 ? (1 - Math.exp(-dt * 5)) : 1);
+        uniforms.uPointAmt.value = uPtAmt;
+        uniforms.uPointDir.value.set(px * 1.7, -py * 1.7, -1).normalize();
+
+        if (!reduced && dt > 0) {
+          spinY += dt * (0.16 + uHover * 0.12);
+        }
+
+        var slide = ss(0.5, 1.0, gp);
+        var shrink = ss(0.78, 1.15, gp);
+        var tS = baseS * (1 - 0.58 * shrink);
+        var tX = (isMobile ? 0.1 : hw * 0.42) * slide;
+        /* keeps moving with the scroll: drifts down through the content, sits low by
+           the contact block, fades out only at the very end of the page */
+        var down = ss(1.15, 2.0, gp);
+        var tY = 0.03 - down * hh * 0.78;
+        canvas.style.opacity = (gp < 1 ? 1 : 0.78 * (1 - ss(1.9, 2.06, gp))).toFixed(3);
+
+        objPosX += (tX - objPosX) * lp;
+        objPosY += (tY - objPosY) * lp;
+        objScl += (tS - objScl) * lp;
+        group.position.set(objPosX, objPosY, 0);
+        group.scale.setScalar(Math.max(0.02, objScl));
+
+        group.rotation.y = spinY + px * 0.4;
+        group.rotation.x = (reduced ? 0.14 : Math.sin(uniforms.uTime.value * 0.24) * 0.12) + py * 0.3;
+      }
+      function renderOnce() { resize(); apply(0); renderer.render(scene, camera); }
+      function loop(now) {
+        if (!running) return;
+        var dt = Math.min((now - last) / 1000 || 0, 0.05);
+        last = now;
+        uniforms.uTime.value += dt;
+        apply(dt);
+        renderer.render(scene, camera);
+        raf = requestAnimationFrame(loop);
+      }
+      function start() {
+        if (running || reduced || !inView || !pageVisible) return;
+        running = true; last = performance.now(); raf = requestAnimationFrame(loop);
+      }
+      function stop() { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
+
+      function onResize() { resize(); if (!running) renderOnce(); }
+      function onWheel(e) {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY) + 0.5) {
+          hAccum = Math.max(-1, Math.min(1, hAccum + e.deltaX * 0.0016));
+          if (reduced) renderOnce();
+        }
+      }
+      function onPointer(e) {
+        var w = window.innerWidth || 1, h = window.innerHeight || 1;
+        var pxr = e.clientX / w, pyr = e.clientY / h;
+        tpx = pxr - 0.5;
+        tpy = pyr - 0.5;
+        /* hover only when the cursor is actually near the sphere on screen */
+        var ar = w / h;
+        var sx = 0.5 + 0.5 * (objPosX / Math.max(0.2, hw));
+        var sy = 0.5 - 0.5 * (objPosY / Math.max(0.2, hh));
+        var rr = (objScl * 1.28) / Math.max(0.2, hh) * 0.5;
+        var ddx = (pxr - sx) * ar;
+        var ddy = (pyr - sy);
+        hoverRef.current = Math.sqrt(ddx * ddx + ddy * ddy) < rr * 1.15;
+      }
+      function onVis() { pageVisible = !document.hidden; if (pageVisible) start(); else stop(); }
+      function onScrollRM() { if (reduced) window.requestAnimationFrame(renderOnce); }
+      function onLost(e) { e.preventDefault(); stop(); }
+      function onRestored() { renderOnce(); start(); }
+
+      window.addEventListener('resize', onResize);
+      window.addEventListener('wheel', onWheel, { passive: true });
+      window.addEventListener('pointermove', onPointer, { passive: true });
+      window.addEventListener('mousemove', onPointer, { passive: true });
+      document.addEventListener('visibilitychange', onVis);
+      if (reduced) window.addEventListener('scroll', onScrollRM, { passive: true });
+      canvas.addEventListener('webglcontextlost', onLost, false);
+      canvas.addEventListener('webglcontextrestored', onRestored, false);
+
+      var ro = null, io = null;
+      if ('ResizeObserver' in window) { ro = new ResizeObserver(onResize); ro.observe(canvas); }
+      if ('IntersectionObserver' in window) {
+        io = new IntersectionObserver(function (en) { inView = en[0].isIntersecting; if (inView) start(); else stop(); }, { threshold: 0.01 });
+        io.observe(canvas);
+      }
+
+      renderOnce();
+      start();
+
+      teardown = function () {
+        stop();
+        window.removeEventListener('resize', onResize);
+        window.removeEventListener('wheel', onWheel);
+        window.removeEventListener('pointermove', onPointer);
+        window.removeEventListener('mousemove', onPointer);
+        document.removeEventListener('visibilitychange', onVis);
+        window.removeEventListener('scroll', onScrollRM);
+        canvas.removeEventListener('webglcontextlost', onLost);
+        canvas.removeEventListener('webglcontextrestored', onRestored);
+        if (ro) ro.disconnect();
+        if (io) io.disconnect();
+        try {
+          mesh.geometry.dispose(); mesh.material.dispose();
+          renderer.dispose();
+        } catch (e) {}
+      };
+      }
+
+      if (window.THREE) {
+        init();
+      } else {
+        var tries = 0;
+        poll = setInterval(function () {
+          if (window.THREE) { clearInterval(poll); poll = null; init(); }
+          else if (++tries > 120) { clearInterval(poll); poll = null; }
+        }, 100);
+      }
+
+      return function () {
+        cancelled = true;
+        if (poll) clearInterval(poll);
+        if (teardown) teardown();
+      };
+    }, []);
+    return html`<canvas className="hero-canvas" ref=${ref} aria-hidden="true"></canvas>`;
+  }
+
+  function App() {
+    var ts = useState(false), isLight = ts[0], setIsLight = ts[1];
+    var pageRef = useRef(null);
+
+    useStageTarget(pageRef);
+
+    useEffect(function () {
+      try { setIsLight(window.matchMedia('(prefers-color-scheme: light)').matches && !document.documentElement.getAttribute('data-theme')); } catch (e) {}
+    }, []);
+
+    function toggleTheme() {
+      var next = isLight ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      setIsLight(next === 'light');
+    }
+
+    return html`
+      <${CodeField} />
+      <div className="vignette" aria-hidden="true"></div>
+      <div className="grain" aria-hidden="true"></div>
+      <div className="page" data-stage="0" ref=${pageRef}>
+
+        <${SkyField} />
+        <${HeroCanvas} />
+
+        <main id="top">
+
+          <section className="hero-track">
+            <div className="hero-pin">
+              <span className="hero-scrim" aria-hidden="true"></span>
+
+              <span className="vf-corner tl"></span><span className="vf-corner tr"></span>
+              <span className="vf-corner bl"></span><span className="vf-corner br"></span>
+              <span className="vf-reticle"></span>
+
+              <${Gate} from="top" delay=${0.06} className="hud">
+                <span className="hud-rec"><span className="dot"></span>REC</span>
+                <span className="hud-mid">Showreel — Анна Мироненко</span>
+                <span className="hud-fmt"><span>4K</span><span>24 FPS</span><span>ISO 400</span></span>
+              <//>
+
+              <div className="hero-inner">
+                <div className="name-block">
+                  <${Gate} from="left" delay=${0}>
+                    <h1 className="hero-name"><span className="l1">Анна</span><span className="l2">Мироненко</span></h1>
+                  <//>
+                  <${Gate} from="left" delay=${0.16}>
+                    <span className="role-line">${ArrowR}Маркетологиня</span>
+                  <//>
+                </div>
+
+                <div className="hero-foot">
+                  <${Gate} from="left" delay=${0.26} className="lead">
+                    Будую системний маркетинг для малого та середнього бізнесу — щоб рішення спиралися на дані, а не на інтуїцію.
+                  <//>
+                  <${Gate} from="bottom" delay=${0.36} className="hero-cta">
+                    <a className="btn btn--primary" href="#contact">Записатися на консультацію</a>
+                    <a className="btn btn--ghost" href="#services">Переглянути послуги</a>
+                  <//>
+                </div>
+              </div>
+
+              <div className="hero-tags">
+                <${Gate} from="right" delay=${0.42} className="hero-tag t1">
+                  ${TagArrow}<span className="ht-txt"><span className="ht-label">Досвід</span><span className="ht-value">8+ років</span></span>
+                <//>
+                <${Gate} from="right" delay=${0.52} className="hero-tag t2">
+                  ${TagArrow}<span className="ht-txt"><span className="ht-label">Проєкти</span><span className="ht-value">40+</span></span>
+                <//>
+                <${Gate} from="right" delay=${0.62} className="hero-tag t3">
+                  ${TagArrow}<span className="ht-txt"><span className="ht-label">Формат</span><span className="ht-value">Консалтинг</span></span>
+                <//>
+                <${Gate} from="right" delay=${0.72} className="hero-tag t4">
+                  ${TagArrow}<span className="ht-txt"><span className="ht-label">База</span><span className="ht-value">Київ</span></span>
+                <//>
+              </div>
+
+              <div className="scroll-hint" aria-hidden="true">
+                <span>прокрутіть</span>
+                <span className="chev"></span>
+              </div>
+            </div>
+          </section>
+
+          <div className="bottom-bar">
+            <${Gate} from="left" delay=${0.5} className="bb-left">
+              <a className="brand" href="#top"><span className="dot"></span>Анна Мироненко</a>
+            <//>
+            <div className="bb-right">
+              <${Gate} from="right" delay=${0.86}><a className="bb-link" href="#about">Про мене</a><//>
+              <${Gate} from="right" delay=${0.78}><a className="bb-link" href="#services">Послуги</a><//>
+              <${Gate} from="right" delay=${0.7}><a className="bb-link" href="#reviews">Відгуки</a><//>
+              <${Gate} from="right" delay=${0.62}><${Timecode} /><//>
+              <${Gate} from="right" delay=${0.5}>
+                <a className="btn btn--primary" href="#contact">Написати</a>
+              <//>
+              <${Gate} from="right" delay=${0.44}>
+                <button className="theme-btn" type="button" onClick=${toggleTheme} aria-label="Змінити тему">${isLight ? IconMoon : IconSun}</button>
+              <//>
+            </div>
+          </div>
+
+          <${BackTop} />
+
+          <section className="strip">
+            <div className="wrap strip-grid">
+              <${Reveal} from="bottom" delay=${0}><${Stat} label="Кадр 01" value="Аудит" sub="канали · воронка · економіка" /><//>
+              <${Reveal} from="bottom" delay=${0.06}><${Stat} label="Кадр 02" value="Стратегія" sub="план на 3–6 місяців" /><//>
+              <${Reveal} from="bottom" delay=${0.12}><${Stat} label="Кадр 03" value="Запуск" sub="реклама під ключ" /><//>
+              <${Reveal} from="bottom" delay=${0.18}><${Stat} label="Кадр 04" value="Супровід" sub="метрики щотижня" /><//>
+            </div>
+          </section>
+
+          <section className="scene" id="about">
+            <div className="wrap">
+              <${SceneHead} n="01" kicker="Про мене" title="Спочатку цифри й бізнес-модель, потім канали та креативи" />
+              <${Reveal} from="right" className="take">
+                <span className="take-tag">Дубль 01</span>
+                <p className="take-body">Останні вісім років я відповідаю за маркетинг у продуктових компаніях і агенціях — від локального ритейлу до SaaS з виходом на ринки ЄС. Бачила, як однакові бюджети дають зовсім різний результат залежно від того, наскільки чесно компанія рахує свою економіку.</p>
+              <//>
+              <${Reveal} from="left" className="take">
+                <span className="take-tag">Дубль 02</span>
+                <p className="take-body">Я не беруся за «просто запустити рекламу». Спершу ми розуміємо, скільки коштує залучення клієнта, яка в нього цінність у часі та де насправді губляться гроші у воронці. Тільки після цього має сенс говорити про канали, оголошення й контент.</p>
+              <//>
+              <${Reveal} from="right" className="take">
+                <span className="take-tag">Дубль 03</span>
+                <p className="take-body">Працюю точково — як консультантка і архітекторка процесів, а не як ще одна пара рук у штаті. Мій результат — це зрозумілий план, за яким далі може працювати ваша команда або підрядники.</p>
+              <//>
+            </div>
+          </section>
+
+          <section className="scene" id="services">
+            <div className="wrap">
+              <${SceneHead} n="02" kicker="Послуги" title="Формати співпраці" />
+              <div className="cards">
+                ${SERVICES.map(function (s, i) {
+                  return html`
+                    <${Reveal} key=${i} from=${['tl', 'tr', 'bl', 'br'][i % 4]} delay=${(i % 2) * 0.06}>
+                      <article className="card panel">
+                        <span className="card-ic" aria-hidden="true">${ICONS[s.ic]}</span>
+                        <h3>${s.t}</h3>
+                        <p>${s.d}</p>
+                        <span className="card-meta">${s.m}</span>
+                      </article>
+                    <//>`;
+                })}
+              </div>
+            </div>
+          </section>
+
+          <section className="scene" id="reviews">
+            <div className="wrap">
+              <${SceneHead} n="03" kicker="Відгуки" title="Що кажуть клієнти" />
+              <div className="quotes">
+                ${REVIEWS.map(function (rv, i) {
+                  return html`
+                    <${Reveal} key=${i} from="bottom" delay=${i * 0.08}>
+                      <figure className="quote panel">
+                        <blockquote>${rv.q}</blockquote>
+                        <figcaption><b>${rv.n}</b>${rv.r}</figcaption>
+                      </figure>
+                    <//>`;
+                })}
+              </div>
+            </div>
+          </section>
+
+          <section className="scene" id="contact">
+            <div className="wrap contact-grid">
+              <div className="contact-intro">
+                <${Reveal} from="left">
+                  <p className="kicker"><span className="scene-rec"></span>СЦЕНА 04<span className="kicker-dim"> — Контакти</span></p>
+                  <h2 style=${{ fontSize: 'clamp(1.9rem,4.6vw,3rem)', margin: '0.4rem 0 1.2rem' }}>Обговоримо ваш проєкт</h2>
+                  <p>Напишіть кілька слів про бізнес і задачу — відповім протягом робочого дня та запропоную формат співпраці.</p>
+                  <ul className="channels">
+                    <li><a href="https://t.me/anna_myronenko"><span className="cl">Telegram</span><span>@anna_myronenko</span></a></li>
+                    <li><a href="mailto:hello@annamyronenko.com"><span className="cl">Email</span><span>hello@annamyronenko.com</span></a></li>
+                    <li><a href="https://www.linkedin.com/in/annamyronenko"><span className="cl">LinkedIn</span><span>/in/annamyronenko</span></a></li>
+                  </ul>
+                <//>
+              </div>
+              <${Reveal} from="right" delay=${0.08}><${ContactForm} /><//>
+            </div>
+          </section>
+
+        </main>
+
+        <footer className="site-footer">
+          <div className="wrap">
+            <span><b>Анна Мироненко</b> · маркетинг-консалтинг, Київ</span>
+            <span className="reel-end">Кінець ролика · © 2026</span>
+          </div>
+        </footer>
+
+      </div>`;
+  }
+
+  try {
+    ReactDOM.createRoot(document.getElementById('root')).render(html`<${App} />`);
+  } catch (e) {
+    if (window.console) console.error(e);
+  }
+})();
+</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</body>
+</html>
